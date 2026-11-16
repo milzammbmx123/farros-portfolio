@@ -44,3 +44,6 @@ Thumbs.db
 
 # original source assets (site uses public/images/...)
 /Foto Profil.jpg
+
+.vercel
+.env*
