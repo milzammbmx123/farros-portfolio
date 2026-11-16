@@ -27,6 +27,7 @@ const LANGUAGE_COLORS: Record<string, string> = {
 export default function GitHubSection() {
   const [repos, setRepos] = useState<GitHubRepo[]>(fallbackRepos);
   const [loading, setLoading] = useState(true);
+  const [isLive, setIsLive] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -42,6 +43,7 @@ export default function GitHubSection() {
           const data: GitHubRepo[] = await response.json();
           if (!cancelled && Array.isArray(data) && data.length > 0) {
             setRepos(data);
+            setIsLive(true);
           }
         }
       } catch (err) {
@@ -57,14 +59,22 @@ export default function GitHubSection() {
     };
   }, []);
 
+  const gridTemplate = isLive
+    ? "md:grid-cols-[36px_1fr_120px_56px_20px]"
+    : "md:grid-cols-[36px_1fr_120px_20px]";
+
   return (
     <section id="proyek" className="section-block">
       <div className="container-x">
         <Reveal>
           <SectionHeading
-            index="03"
+            index="05"
             label="Proyek"
-            note={`github.com/${personalInfo.githubUsername}`}
+            note={
+              isLive
+                ? `github.com/${personalInfo.githubUsername}`
+                : "Daftar karya terkurasi"
+            }
             title={
               <>
                 Kode yang bisa dibuka, dibaca, dan{" "}
@@ -80,22 +90,32 @@ export default function GitHubSection() {
         <Reveal delay={80}>
           <div className="mt-10 flex items-baseline justify-between border-b border-line pb-2">
             <span className="mono-label">Repositori terbaru</span>
-            <a
-              href={personalInfo.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-draw font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-ink"
-            >
-              Lihat semua di GitHub ↗
-            </a>
+            {isLive ? (
+              <a
+                href={personalInfo.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-draw font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-ink"
+              >
+                Lihat semua di GitHub ↗
+              </a>
+            ) : (
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+                {String(repos.length).padStart(2, "0")} entri
+              </span>
+            )}
           </div>
 
           {/* Column labels */}
-          <div className="hidden border-b border-line py-2.5 md:grid md:grid-cols-[36px_1fr_120px_56px_20px] md:gap-4">
+          <div
+            className={`hidden border-b border-line py-2.5 md:grid ${gridTemplate} md:gap-4`}
+          >
             <span className="mono-label">No</span>
             <span className="mono-label">Repositori</span>
             <span className="mono-label">Stack</span>
-            <span className="mono-label text-right">Stars</span>
+            {isLive ? (
+              <span className="mono-label text-right">Stars</span>
+            ) : null}
             <span />
           </div>
 
@@ -104,7 +124,7 @@ export default function GitHubSection() {
               {Array.from({ length: 5 }).map((_, i) => (
                 <div
                   key={i}
-                  className="grid animate-pulse grid-cols-[28px_1fr] gap-4 border-b border-line py-4 md:grid-cols-[36px_1fr_120px_56px_20px] md:items-center md:gap-4"
+                  className={`grid animate-pulse grid-cols-[28px_1fr] gap-4 border-b border-line py-4 ${gridTemplate} md:items-center md:gap-4`}
                 >
                   <div className="h-2.5 w-4 bg-line" />
                   <div className="space-y-2">
@@ -112,7 +132,9 @@ export default function GitHubSection() {
                     <div className="h-2.5 w-2/3 bg-line" />
                   </div>
                   <div className="hidden h-2.5 w-16 bg-line md:block" />
-                  <div className="hidden h-2.5 w-8 bg-line md:ml-auto md:block" />
+                  {isLive ? (
+                    <div className="hidden h-2.5 w-8 bg-line md:ml-auto md:block" />
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -123,14 +145,10 @@ export default function GitHubSection() {
                   (repo.language && LANGUAGE_COLORS[repo.language]) ||
                   LANGUAGE_COLORS.Default;
 
-                return (
-                  <a
-                    key={repo.id}
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group -mx-2 grid grid-cols-[28px_1fr_20px] items-baseline gap-4 border-b border-line px-2 py-4 transition-colors duration-200 hover:bg-ink hover:text-paper md:grid-cols-[36px_1fr_120px_56px_20px] md:items-center"
-                  >
+                const rowClass = `group -mx-2 grid grid-cols-[28px_1fr_20px] items-baseline gap-4 border-b border-line px-2 py-4 ${gridTemplate} md:items-center`;
+
+                const rowContent = (
+                  <>
                     <span className="font-mono text-[10px] text-muted transition-colors duration-200 group-hover:text-accent">
                       {String(idx + 1).padStart(2, "0")}
                     </span>
@@ -151,10 +169,12 @@ export default function GitHubSection() {
                       </span>
                       <span className="mono-label mt-1.5 flex items-center gap-3 md:hidden">
                         {repo.language || "Markdown"}
-                        <span className="inline-flex items-center gap-1">
-                          <Star className="h-2.5 w-2.5" strokeWidth={1.5} />
-                          {repo.stargazers_count}
-                        </span>
+                        {isLive ? (
+                          <span className="inline-flex items-center gap-1">
+                            <Star className="h-2.5 w-2.5" strokeWidth={1.5} />
+                            {repo.stargazers_count}
+                          </span>
+                        ) : null}
                       </span>
                     </span>
 
@@ -162,16 +182,36 @@ export default function GitHubSection() {
                       {repo.language || "Markdown"}
                     </span>
 
-                    <span className="hidden items-center justify-end gap-1 font-mono text-[11px] transition-colors duration-200 group-hover:text-paper md:flex">
-                      <Star className="h-3 w-3" strokeWidth={1.5} />
-                      {repo.stargazers_count}
-                    </span>
+                    {isLive ? (
+                      <span className="hidden items-center justify-end gap-1 font-mono text-[11px] transition-colors duration-200 group-hover:text-paper md:flex">
+                        <Star className="h-3 w-3" strokeWidth={1.5} />
+                        {repo.stargazers_count}
+                      </span>
+                    ) : null}
 
-                    <ArrowUpRight
-                      className="h-3.5 w-3.5 justify-self-end text-muted transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-accent"
-                      strokeWidth={1.5}
-                    />
+                    {isLive ? (
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5 justify-self-end text-muted transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-accent"
+                        strokeWidth={1.5}
+                      />
+                    ) : null}
+                  </>
+                );
+
+                return isLive ? (
+                  <a
+                    key={repo.id}
+                    href={repo.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${rowClass} transition-colors duration-200 hover:bg-ink hover:text-paper`}
+                  >
+                    {rowContent}
                   </a>
+                ) : (
+                  <div key={repo.id} className={rowClass}>
+                    {rowContent}
+                  </div>
                 );
               })}
             </div>

@@ -40,7 +40,7 @@ export default function CertificatesSection() {
       <div className="container-x">
         <Reveal>
           <SectionHeading
-            index="04"
+            index="06"
             label="Sertifikat"
             note={`${certificatesData.length} dokumen`}
             title={

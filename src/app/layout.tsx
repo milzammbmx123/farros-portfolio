@@ -7,25 +7,28 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Farros Asadudin Milzam — 3D Artist & Informatics",
+  title: "Farros Asadudin Milzam — 3D Artist, UI/UX & IT Support",
   description:
-    "Portofolio Farros Asadudin Milzam. Visualisasi arsitektur dan interior 3D di Blender, eksplorasi data & machine learning dengan Python, dan web modern dengan Next.js.",
+    "Portofolio Farros Asadudin Milzam, lulusan Teknik Informatika (S.Kom, IPK 3.67). Visualisasi 3D di Blender, desain antarmuka di Figma, dukungan IT, serta web modern dengan Next.js.",
   keywords: [
     "Farros Asadudin Milzam",
     "3D Artist",
     "Blender",
     "Cycles Render",
     "Architectural Visualization",
-    "Informatics",
+    "UI/UX Designer",
+    "Figma",
+    "IT Support",
+    "Teknik Informatika",
     "Machine Learning",
     "Data Science",
     "Next.js Portfolio",
   ],
   authors: [{ name: "Farros Asadudin Milzam" }],
   openGraph: {
-    title: "Farros Asadudin Milzam — 3D Artist & Informatics",
+    title: "Farros Asadudin Milzam — 3D Artist, UI/UX & IT Support",
     description:
-      "Visualisasi arsitektur & interior 3D, data science, dan web engineering dari Malang, Indonesia.",
+      "Visualisasi 3D, desain antarmuka, dan dukungan teknis dari Malang, Indonesia. Lulusan S.Kom dengan IPK 3.67.",
     type: "website",
     url: "/",
     siteName: "Farros Asadudin Milzam",
@@ -33,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Farros Asadudin Milzam — 3D Artist & Informatics",
+    title: "Farros Asadudin Milzam — 3D Artist, UI/UX & IT Support",
     description:
-      "Visualisasi arsitektur & interior 3D, data science, dan web engineering dari Malang, Indonesia.",
+      "Visualisasi 3D, desain antarmuka, dan dukungan teknis dari Malang, Indonesia.",
   },
   alternates: {
     canonical: "/",

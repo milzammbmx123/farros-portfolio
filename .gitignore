@@ -45,5 +45,11 @@ Thumbs.db
 # original source assets (site uses public/images/...)
 /Foto Profil.jpg
 
+# dokumen pribadi & tangkapan layar mentah (jangan dipublikasikan)
+/Penilaian dan Laporan PKL.pdf
+/public/images/works/Screenshot 2026-11-16 150033.png
+/public/images/works/Screenshot 2026-11-16 150105.png
+/public/images/works/Screenshot 2026-11-16 150140.png
+
 .vercel
 .env*

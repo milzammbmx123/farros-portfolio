@@ -6,6 +6,8 @@ import { personalInfo } from "@/data/portfolio";
 
 const LINKS = [
   { label: "Tentang", href: "#tentang" },
+  { label: "Pengalaman", href: "#pengalaman" },
+  { label: "Studi Kasus", href: "#studi-kasus" },
   { label: "Karya", href: "#karya" },
   { label: "Proyek", href: "#proyek" },
   { label: "Sertifikat", href: "#sertifikat" },
@@ -25,11 +27,11 @@ export default function Footer() {
             {personalInfo.name}
           </p>
           <p className="mono-label mt-1.5">
-            3D Artist — Mahasiswa Teknik Informatika
+            S.Kom — 3D Artist, UI/UX &amp; IT Support
           </p>
           <p className="mt-4 max-w-xs text-[13px] leading-relaxed text-muted">
-            Visualisasi arsitektur &amp; interior, eksplorasi data, dan web
-            modern. Dikerjakan sendiri, dari model sampai baris kode terakhir.
+            Visualisasi 3D, desain antarmuka, dan dukungan teknis. Dikerjakan
+            sendiri, dari model sampai baris kode terakhir.
           </p>
         </div>
 
@@ -54,6 +56,34 @@ export default function Footer() {
           <ul className="mt-3 space-y-1.5">
             <li>
               <a
+                href={personalInfo.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
+              >
+                WhatsApp
+                <ArrowUpRight
+                  className="h-3 w-3 transition-colors group-hover:text-accent"
+                  strokeWidth={1.5}
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href={personalInfo.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
+              >
+                LinkedIn
+                <ArrowUpRight
+                  className="h-3 w-3 transition-colors group-hover:text-accent"
+                  strokeWidth={1.5}
+                />
+              </a>
+            </li>
+            <li>
+              <a
                 href={`mailto:${personalInfo.email}`}
                 className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
               >
@@ -72,6 +102,19 @@ export default function Footer() {
                 className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
               >
                 GitHub
+                <ArrowUpRight
+                  className="h-3 w-3 transition-colors group-hover:text-accent"
+                  strokeWidth={1.5}
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href={personalInfo.cvUrl}
+                download
+                className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
+              >
+                Unduh CV (PDF)
                 <ArrowUpRight
                   className="h-3 w-3 transition-colors group-hover:text-accent"
                   strokeWidth={1.5}

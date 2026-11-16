@@ -7,10 +7,12 @@ import { personalInfo } from "@/data/portfolio";
 
 const NAV_ITEMS = [
   { id: "tentang", label: "Tentang", no: "01" },
-  { id: "karya", label: "Karya", no: "02" },
-  { id: "proyek", label: "Proyek", no: "03" },
-  { id: "sertifikat", label: "Sertifikat", no: "04" },
-  { id: "kontak", label: "Kontak", no: "05" },
+  { id: "pengalaman", label: "Pengalaman", no: "02" },
+  { id: "studi-kasus", label: "Studi Kasus", no: "03" },
+  { id: "karya", label: "Karya", no: "04" },
+  { id: "proyek", label: "Proyek", no: "05" },
+  { id: "sertifikat", label: "Sertifikat", no: "06" },
+  { id: "kontak", label: "Kontak", no: "07" },
 ];
 
 export default function Navbar() {
@@ -84,13 +86,13 @@ export default function Navbar() {
                 Farros A. Milzam
               </span>
               <span className="font-mono text-[9px] uppercase leading-tight tracking-[0.18em] text-muted">
-                3D &amp; Informatics
+                3D · UI/UX · IT
               </span>
             </span>
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-7 md:flex">
+          <nav className="hidden items-center gap-5 xl:flex">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.id}
@@ -143,7 +145,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Buka menu navigasi"
               aria-expanded={menuOpen}
-              className="grid h-8 w-8 place-items-center border border-line text-ink transition-colors hover:border-ink md:hidden"
+              className="grid h-8 w-8 place-items-center border border-line text-ink transition-colors hover:border-ink xl:hidden"
             >
               <span className="flex flex-col gap-1">
                 <span
@@ -171,22 +173,22 @@ export default function Navbar() {
 
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 top-16 z-40 bg-paper transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 top-16 z-40 bg-paper transition-opacity duration-300 xl:hidden ${
           menuOpen
             ? "visible pointer-events-auto opacity-100"
             : "invisible pointer-events-none opacity-0"
         }`}
       >
-        <div className="container-x flex h-full flex-col justify-between py-10">
-          <nav className="flex flex-col">
+        <div className="container-x flex h-full flex-col justify-between gap-8 py-8">
+          <nav className="flex flex-col overflow-y-auto">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-baseline justify-between border-b border-line py-4"
+                className="flex items-baseline justify-between border-b border-line py-3.5 sm:py-4"
               >
-                <span className="font-serif text-3xl italic leading-none">
+                <span className="font-serif text-2xl italic leading-none sm:text-3xl">
                   {item.label}
                 </span>
                 <span className="mono-label">({item.no})</span>
@@ -197,8 +199,16 @@ export default function Navbar() {
           <div className="space-y-3">
             <p className="mono-label">Malang, Indonesia — WIB</p>
             <a
-              href={`mailto:${personalInfo.email}`}
+              href={personalInfo.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="link-draw inline-block font-mono text-xs tracking-tight"
+            >
+              WhatsApp — {personalInfo.whatsappDisplay}
+            </a>
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="link-draw block w-fit font-mono text-xs tracking-tight"
             >
               {personalInfo.email}
             </a>

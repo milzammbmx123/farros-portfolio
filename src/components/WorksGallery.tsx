@@ -123,9 +123,9 @@ export default function WorksGallery() {
       <div className="container-x">
         <Reveal>
           <SectionHeading
-            index="02"
+            index="04"
             label="Karya"
-            note="07 karya terpilih"
+            note="07 karya 3D terpilih"
             title={
               <>
                 Dirender dari nol — model, material, sampai{" "}

@@ -2,14 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 
 const SPECS = [
   ["Berbasis di", "Malang, ID"],
-  ["Fokus", "3D · Data · Web"],
-  ["Kampus", "UIN Malang"],
-  ["Status", "Terbuka"],
+  ["Pendidikan", "S.Kom · IPK 3.67"],
+  ["Fokus", "3D · UI/UX · IT"],
+  ["Status", "Open to work"],
 ];
 
 export default function HeroSection() {
@@ -64,7 +64,7 @@ export default function HeroSection() {
               style={{ animationDelay: "260ms" }}
             >
               <p className="mono-label text-ink">
-                Mahasiswa Teknik Informatika — 3D Artist
+                {personalInfo.role}
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-muted sm:text-base">
                 {personalInfo.bio}
@@ -74,6 +74,17 @@ export default function HeroSection() {
                 <a href="#karya" className="btn-ink group">
                   Lihat Karya
                   <ArrowDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-y-0.5" />
+                </a>
+                <a
+                  href={personalInfo.cvUrl}
+                  download
+                  className="btn-ghost group"
+                >
+                  Unduh CV (PDF)
+                  <Download
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-y-0.5"
+                    strokeWidth={1.5}
+                  />
                 </a>
                 <a
                   href={personalInfo.githubUrl}
@@ -179,6 +190,14 @@ export default function HeroSection() {
               className="mono-label transition-colors hover:text-ink"
             >
               GitHub ↗
+            </a>
+            <a
+              href={personalInfo.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mono-label transition-colors hover:text-ink"
+            >
+              LinkedIn ↗
             </a>
             <a
               href={`mailto:${personalInfo.email}`}

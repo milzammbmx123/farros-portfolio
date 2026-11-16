@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Marquee from "@/components/Marquee";
 import AboutSection from "@/components/AboutSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import WorksGallery from "@/components/WorksGallery";
 import GitHubSection from "@/components/GitHubSection";
 import CertificatesSection from "@/components/CertificatesSection";
@@ -11,16 +13,16 @@ import Footer from "@/components/Footer";
 const MARQUEE_ITEMS = [
   "3D Visualization",
   "Architectural Rendering",
-  "Interior Design",
-  "Hard Surface Modeling",
+  "UI/UX Design",
+  "Figma Prototyping",
+  "IT Support",
   "Machine Learning",
   "Web Engineering",
   "Blender · Cycles",
   "Next.js · TypeScript",
+  "Photography · Lightroom",
   "3D Visualization",
   "Architectural Rendering",
-  "Interior Design",
-  "Hard Surface Modeling",
 ];
 
 export default function Home() {
@@ -39,6 +41,8 @@ export default function Home() {
         <HeroSection />
         <Marquee items={MARQUEE_ITEMS} />
         <AboutSection />
+        <ExperienceSection />
+        <CaseStudiesSection />
         <WorksGallery />
         <GitHubSection />
         <CertificatesSection />

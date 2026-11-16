@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { WorkItem } from "@/types";
@@ -27,6 +27,11 @@ export default function LightboxModal({
   const isOpen =
     currentIndex !== null && currentIndex >= 0 && currentIndex < works.length;
   const currentWork = isOpen ? works[currentIndex] : null;
+  const [showClay, setShowClay] = useState(false);
+
+  useEffect(() => {
+    setShowClay(false);
+  }, [currentIndex]);
 
   const handleNext = useCallback(() => {
     if (currentIndex !== null) {
@@ -110,16 +115,46 @@ export default function LightboxModal({
         </div>
 
         {/* Image */}
-        <div className="relative flex min-h-[300px] flex-1 items-center justify-center overflow-hidden bg-[#0b0b0a] sm:min-h-[420px]">
+        <div className="relative flex min-h-[280px] flex-1 items-center justify-center overflow-hidden bg-[#0b0b0a] sm:min-h-[400px]">
           <Image
-            src={currentWork.image}
+            key={showClay ? "clay" : "render"}
+            src={
+              showClay && currentWork.clayImage
+                ? currentWork.clayImage
+                : currentWork.image
+            }
             alt={currentWork.title}
             width={1600}
             height={1000}
-            className="max-h-[62vh] w-auto object-contain"
+            className="max-h-[58vh] w-auto object-contain"
             sizes="(max-width: 1024px) 100vw, 1024px"
             priority
           />
+
+          {currentWork.clayImage ? (
+            <div className="absolute left-3 top-3 flex border border-white/20 bg-black/60 font-mono text-[9px] uppercase tracking-[0.14em] text-white">
+              <button
+                type="button"
+                onClick={() => setShowClay(false)}
+                aria-pressed={!showClay}
+                className={`px-2.5 py-1.5 transition-colors ${
+                  showClay ? "hover:bg-white/10" : "bg-accent text-accent-ink"
+                }`}
+              >
+                Render
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowClay(true)}
+                aria-pressed={showClay}
+                className={`border-l border-white/20 px-2.5 py-1.5 transition-colors ${
+                  showClay ? "bg-accent text-accent-ink" : "hover:bg-white/10"
+                }`}
+              >
+                Clay / Wire
+              </button>
+            </div>
+          ) : null}
 
           <button
             onClick={handlePrev}
@@ -138,7 +173,7 @@ export default function LightboxModal({
         </div>
 
         {/* Caption */}
-        <div className="grid gap-4 border-t border-line px-4 py-4 sm:px-6 md:grid-cols-[1.5fr_1fr] md:gap-10">
+        <div className="grid gap-4 overflow-y-auto border-t border-line px-4 py-4 sm:px-6 md:grid-cols-[1.5fr_1fr] md:gap-10">
           <div>
             <h3 className="text-lg font-medium leading-snug tracking-[-0.015em] sm:text-xl">
               {currentWork.title}
@@ -146,6 +181,25 @@ export default function LightboxModal({
             <p className="mt-2 text-[13px] leading-relaxed text-muted">
               {currentWork.description}
             </p>
+
+            {currentWork.stages ? (
+              <div className="mt-4 border-t border-line pt-3">
+                <span className="mono-label">Tahapan pengerjaan</span>
+                <ol className="mt-2 grid gap-x-5 gap-y-1.5 sm:grid-cols-2">
+                  {currentWork.stages.map((stage, stageIdx) => (
+                    <li
+                      key={stage}
+                      className="flex gap-2 text-[11px] leading-snug text-muted"
+                    >
+                      <span className="font-mono text-[9px] leading-[1.6] text-accent">
+                        {String(stageIdx + 1).padStart(2, "0")}
+                      </span>
+                      <span>{stage}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
           </div>
 
           <dl className="space-y-2 self-start border-t border-line pt-3 md:border-l md:border-t-0 md:pl-6 md:pt-0">

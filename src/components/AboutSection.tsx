@@ -10,22 +10,37 @@ const PILLARS = [
   {
     no: "01",
     title: "3D Visualization",
-    text: "Visualisasi arsitektur dan interior, kebanyakan pada suasana malam dengan pencahayaan Cycles. Termasuk hard surface modeling dan rekonstruksi ruang.",
+    text: "Visualisasi arsitektur dan interior, kebanyakan pada suasana malam dengan pencahayaan Cycles. Termasuk karakter low-poly dan rekonstruksi ruang.",
     tags: ["Blender", "Cycles", "ArchViz"],
   },
   {
     no: "02",
-    title: "Data & Machine Learning",
-    text: "Dari membersihkan data sampai membangun model klasifikasi sederhana. Perangkat utamanya Python, Pandas, dan Scikit-learn.",
-    tags: ["Python", "Pandas", "Scikit-learn"],
+    title: "UI/UX Design",
+    text: "Merancang antarmuka di Figma: wireframe, hierarki informasi, sampai komponen form — lalu menguji alurnya sebelum diserahkan ke tim pengembang.",
+    tags: ["Figma", "Wireframe", "Black-box Testing"],
   },
   {
     no: "03",
-    title: "Web Engineering",
-    text: "Antarmuka yang rapi, ringan, dan enak dipakai — dibangun dengan Next.js, TypeScript, dan Tailwind. Termasuk situs yang sedang Anda baca.",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
+    title: "IT Support & Sistem",
+    text: "Pemeliharaan perangkat keras dan lunak: instalasi, pengecekan spesifikasi, optimasi performa, dan pekerjaan perkantoran sehari-hari.",
+    tags: ["Troubleshooting", "Microsoft Office", "Google Workspace"],
+  },
+  {
+    no: "04",
+    title: "Data & Web",
+    text: "Python untuk data dan machine learning, lalu Next.js serta TypeScript untuk membangun antarmuka web — termasuk situs yang sedang Anda baca.",
+    tags: ["Python", "Next.js", "TypeScript"],
   },
 ];
+
+const SKILL_GROUPS = skillsList.reduce<Record<string, typeof skillsList>>(
+  (groups, skill) => {
+    groups[skill.category] = groups[skill.category] ?? [];
+    groups[skill.category].push(skill);
+    return groups;
+  },
+  {}
+);
 
 export default function AboutSection() {
   return (
@@ -35,12 +50,13 @@ export default function AboutSection() {
           <SectionHeading
             index="01"
             label="Tentang"
-            note="7 karya · 10 sertifikat · 6 repositori"
+            note="S.Kom · IPK 3.67 · 10 sertifikat"
             title={
               <>
-                Sebagian hari saya render, sebagian lagi saya{" "}
+                Sebagian hari saya render, sebagian lagi saya merapikan sistem
+                &amp;{" "}
                 <em className="font-serif italic tracking-[-0.01em] text-accent">
-                  ngoding
+                  antarmuka digital
                 </em>
                 .
               </>
@@ -80,9 +96,15 @@ export default function AboutSection() {
 
               <dl className="mt-8 space-y-2.5 border-t border-line pt-5">
                 <div className="flex items-baseline justify-between gap-4">
-                  <dt className="mono-label">Kampus</dt>
+                  <dt className="mono-label">Pendidikan</dt>
                   <dd className="text-right text-[13px]">
                     {personalInfo.institution}
+                  </dd>
+                </div>
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="mono-label">Gelar</dt>
+                  <dd className="text-right text-[13px]">
+                    {personalInfo.degree}
                   </dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-4">
@@ -143,25 +165,34 @@ export default function AboutSection() {
                 <span className="mono-label">{skillsList.length} entri</span>
               </div>
 
-              <div className="mt-5 grid gap-x-10 sm:grid-cols-2">
-                {skillsList.map((skill, idx) => (
-                  <div
-                    key={skill.name}
-                    className="group flex items-baseline gap-3 border-b border-line py-2.5"
-                  >
-                    <span className="w-4 font-mono text-[9px] text-muted">
-                      {String(idx + 1).padStart(2, "0")}
+              <div className="mt-5 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                {Object.entries(SKILL_GROUPS).map(([category, items]) => (
+                  <div key={category}>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink">
+                      {category}
                     </span>
-                    <span className="text-[13px] transition-colors group-hover:text-accent">
-                      {skill.name}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="mt-auto flex-1 translate-y-[-3px] border-b border-dotted border-line"
-                    />
-                    <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
-                      {skill.level}
-                    </span>
+                    <div className="mt-2 border-t border-line">
+                      {items.map((skill, idx) => (
+                        <div
+                          key={skill.name}
+                          className="group flex items-baseline gap-3 border-b border-line py-2.5"
+                        >
+                          <span className="w-4 font-mono text-[9px] text-muted">
+                            {String(idx + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[13px] transition-colors group-hover:text-accent">
+                            {skill.name}
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            className="mt-auto flex-1 translate-y-[-3px] border-b border-dotted border-line"
+                          />
+                          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
+                            {skill.level}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
