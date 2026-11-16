@@ -168,7 +168,7 @@ export default function GitHubSection() {
                         {repo.description || "Tanpa deskripsi."}
                       </span>
                       <span className="mono-label mt-1.5 flex items-center gap-3 md:hidden">
-                        {repo.language || "Markdown"}
+                        {repo.language || "Tidak terdeteksi"}
                         {isLive ? (
                           <span className="inline-flex items-center gap-1">
                             <Star className="h-2.5 w-2.5" strokeWidth={1.5} />
@@ -179,7 +179,7 @@ export default function GitHubSection() {
                     </span>
 
                     <span className="mono-label hidden transition-colors duration-200 group-hover:text-paper md:block">
-                      {repo.language || "Markdown"}
+                      {repo.language || "Tidak terdeteksi"}
                     </span>
 
                     {isLive ? (
