@@ -92,6 +92,12 @@ export interface PersonalInfo {
   email: string;
   githubUrl: string;
   githubUsername: string;
+  /**
+   * false = sembunyikan tautan profil GitHub di hero, kontak, dan footer.
+   * Dipakai selama akun masih di-flag GitHub (halaman profil 404 untuk publik).
+   * Ubah ke true setelah URL-nya 200 di jendela Incognito.
+   */
+  githubPublic: boolean;
   linkedinUrl: string;
   whatsappUrl: string;
   whatsappDisplay: string;

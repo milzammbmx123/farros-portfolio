@@ -86,15 +86,17 @@ export default function HeroSection() {
                     strokeWidth={1.5}
                   />
                 </a>
-                <a
-                  href={personalInfo.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-draw inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em]"
-                >
-                  GitHub
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
+                {personalInfo.githubPublic && (
+                  <a
+                    href={personalInfo.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-draw inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em]"
+                  >
+                    GitHub
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -183,14 +185,16 @@ export default function HeroSection() {
             <ArrowDown className="h-3 w-3 transition-transform duration-300 group-hover:translate-y-0.5" />
           </a>
           <div className="flex items-center gap-5">
-            <a
-              href={personalInfo.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mono-label transition-colors hover:text-ink"
-            >
-              GitHub ↗
-            </a>
+            {personalInfo.githubPublic && (
+              <a
+                href={personalInfo.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mono-label transition-colors hover:text-ink"
+              >
+                GitHub ↗
+              </a>
+            )}
             <a
               href={personalInfo.linkedinUrl}
               target="_blank"

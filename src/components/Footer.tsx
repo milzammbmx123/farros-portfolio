@@ -94,20 +94,22 @@ export default function Footer() {
                 />
               </a>
             </li>
-            <li>
-              <a
-                href={personalInfo.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
-              >
-                GitHub
-                <ArrowUpRight
-                  className="h-3 w-3 transition-colors group-hover:text-accent"
-                  strokeWidth={1.5}
-                />
-              </a>
-            </li>
+            {personalInfo.githubPublic && (
+              <li>
+                <a
+                  href={personalInfo.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
+                >
+                  GitHub
+                  <ArrowUpRight
+                    className="h-3 w-3 transition-colors group-hover:text-accent"
+                    strokeWidth={1.5}
+                  />
+                </a>
+              </li>
+            )}
             <li>
               <a
                 href={personalInfo.cvUrl}

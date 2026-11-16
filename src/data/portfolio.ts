@@ -24,6 +24,10 @@ export const personalInfo: PersonalInfo = {
   email: "farrosmilzam10@gmail.com",
   githubUrl: "https://github.com/milzammbmx123",
   githubUsername: "milzammbmx123",
+  // Akun GitHub sedang di-flag otomatis (tiket support #5010098): halaman profil
+  // 404 bagi pengunjung. Selama false, tautan profil disembunyikan di hero,
+  // kontak, dan footer. Set true setelah URL-nya 200 di Incognito.
+  githubPublic: false,
   linkedinUrl:
     "https://www.linkedin.com/in/farros-asadudin-milzam-09822424b",
   whatsappUrl: "https://wa.me/6282230116506",
