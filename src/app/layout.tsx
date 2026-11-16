@@ -2,7 +2,11 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://farros-portfolio.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Farros Asadudin Milzam — 3D Artist & Informatics",
   description:
     "Portofolio Farros Asadudin Milzam. Visualisasi arsitektur dan interior 3D di Blender, eksplorasi data & machine learning dengan Python, dan web modern dengan Next.js.",
@@ -23,6 +27,18 @@ export const metadata: Metadata = {
     description:
       "Visualisasi arsitektur & interior 3D, data science, dan web engineering dari Malang, Indonesia.",
     type: "website",
+    url: "/",
+    siteName: "Farros Asadudin Milzam",
+    locale: "id_ID",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Farros Asadudin Milzam — 3D Artist & Informatics",
+    description:
+      "Visualisasi arsitektur & interior 3D, data science, dan web engineering dari Malang, Indonesia.",
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
