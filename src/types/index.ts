@@ -30,6 +30,8 @@ export interface CaseStudyScreen {
   src: string;
   alt: string;
   caption: string;
+  /** Native aspect ratio of this screenshot, e.g. "1440 / 1052". */
+  aspect?: string;
 }
 
 export interface CaseStudyItem {
@@ -49,10 +51,8 @@ export interface CaseStudyItem {
   /** Native aspect ratio of the hero screenshot, e.g. "1691 / 881". */
   imageRatio?: string;
   imageNote?: string;
-  /** Extra screens shown as a contact sheet under the hero. */
+  /** Extra screens shown in the interactive gallery. */
   screens?: CaseStudyScreen[];
-  /** Aspect ratio shared by every screen in `screens`. */
-  screensAspect?: string;
   link?: string;
 }
 

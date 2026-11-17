@@ -9,6 +9,8 @@
   --line: rgba(23, 22, 15, 0.16);
   --line-strong: rgba(23, 22, 15, 0.34);
   --watermark: rgba(23, 22, 15, 0.09);
+  --tint: rgba(23, 22, 15, 0.028);
+  --tint-strong: rgba(23, 22, 15, 0.055);
   --accent: #cf4f14;
   --accent-ink: #fbf8f0;
 
@@ -26,6 +28,8 @@
   --line: rgba(239, 234, 222, 0.18);
   --line-strong: rgba(239, 234, 222, 0.36);
   --watermark: rgba(239, 234, 222, 0.1);
+  --tint: rgba(239, 234, 222, 0.04);
+  --tint-strong: rgba(239, 234, 222, 0.07);
   --accent: #f07a3c;
   --accent-ink: #100f0d;
 }

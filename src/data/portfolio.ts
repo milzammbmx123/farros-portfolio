@@ -274,34 +274,37 @@ export const caseStudiesData: CaseStudyItem[] = [
     image: "/images/case-studies/seminara-landing.jpg",
     imageAlt:
       "Halaman landing Seminara.id: navigasi Beranda, Seminar, Pembicara, Kontak, dan hero biru bertuliskan Tingkatkan Kompetensi Profesional Melalui Event Berkualitas",
-    imageRatio: "1691 / 881",
+    imageRatio: "1440 / 750",
     imageNote:
       "Tangkapan layar halaman landing — lampiran laporan PKL, 2025",
-    screensAspect: "4 / 3",
     screens: [
       {
         src: "/images/case-studies/seminara-seminar.jpg",
         alt: "Halaman daftar seminar Seminara.id dengan tiga kartu acara",
         caption:
           "Daftar seminar: kartu acara memuat harga, tanggal, lokasi, dan tombol daftar.",
+        aspect: "1440 / 734",
       },
       {
         src: "/images/case-studies/seminara-detail.jpg",
         alt: "Halaman detail seminar Work Smart dengan poster acara dan panel informasi",
         caption:
           "Detail seminar: poster acara, ringkasan materi, dan panel jadwal.",
+        aspect: "1440 / 1052",
       },
       {
         src: "/images/case-studies/seminara-speakers.jpg",
         alt: "Halaman daftar pembicara Seminara.id berisi empat profil narasumber",
         caption:
           "Daftar pembicara: foto, gelar, dan ringkasan keahlian tiap narasumber.",
+        aspect: "1440 / 1021",
       },
       {
         src: "/images/case-studies/seminara-profile.jpg",
         alt: "Halaman profil pembicara dengan biografi dan daftar seminar yang diisi",
         caption:
           "Profil pembicara: biografi singkat dan seminar yang pernah diisi.",
+        aspect: "1440 / 1102",
       },
     ],
   },
@@ -333,21 +336,22 @@ export const caseStudiesData: CaseStudyItem[] = [
     image: "/images/case-studies/trash-tycoon-menu.jpg",
     imageAlt:
       "Menu utama Trash Tycoon bertajuk kayu dengan tombol MULAI, PENGATURAN, dan KELUAR",
-    imageRatio: "1919 / 1079",
+    imageRatio: "1440 / 810",
     imageNote: "Tangkapan layar build permainan, 2026",
-    screensAspect: "16 / 9",
     screens: [
       {
         src: "/images/case-studies/trash-tycoon-hud.jpg",
         alt: "HUD Trash Tycoon saat bermain: sisa waktu, isi truk, koin, dan tiga daya tahan sampah",
         caption:
           "HUD saat bermain: sisa waktu, isi truk, koin, dan daya tahan tiga jenis sampah — panel performa terbaca 72 FPS pada Quality UltraHigh.",
+        aspect: "1440 / 810",
       },
       {
         src: "/images/case-studies/trash-tycoon-quality-low.jpg",
         alt: "Modal sambutan Trash Tycoon dengan panel performa 144 FPS pada Quality UltraLow",
         caption:
           "Modal sambutan pada Quality UltraLow — frame rate terbaca 144 FPS saat detail grafis diturunkan.",
+        aspect: "1440 / 810",
       },
     ],
   },

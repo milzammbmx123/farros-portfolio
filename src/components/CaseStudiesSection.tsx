@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { caseStudiesData } from "@/data/portfolio";
 import { CaseStudyItem } from "@/types";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
+import CaseGallery from "./CaseGallery";
 
 function WireframeWeb() {
   return (
@@ -161,31 +161,7 @@ function WireframeGame() {
   );
 }
 
-function CaseVisual({ study }: { study: CaseStudyItem }) {
-  if (study.image) {
-    return (
-      <figure>
-        <div
-          className="relative w-full overflow-hidden border border-line bg-paper"
-          style={{ aspectRatio: study.imageRatio ?? "4 / 3" }}
-        >
-          <Image
-            src={study.image}
-            alt={study.imageAlt ?? `Tampilan ${study.title}`}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 720px"
-          />
-        </div>
-        {study.imageNote && (
-          <figcaption className="mono-label mt-2.5">
-            {study.imageNote}
-          </figcaption>
-        )}
-      </figure>
-    );
-  }
-
+function WireframeVisual({ study }: { study: CaseStudyItem }) {
   return (
     <figure>
       <div className="relative aspect-[4/3] overflow-hidden border border-line bg-paper">
@@ -195,46 +171,6 @@ function CaseVisual({ study }: { study: CaseStudyItem }) {
         {study.imageNote ?? "Diagram wireframe skematik — bukan tangkapan layar"}
       </figcaption>
     </figure>
-  );
-}
-
-function ScreenStrip({ study }: { study: CaseStudyItem }) {
-  if (!study.screens?.length) return null;
-
-  const columns =
-    study.screens.length >= 3
-      ? "sm:grid-cols-2 lg:grid-cols-4"
-      : "sm:grid-cols-2 lg:grid-cols-2";
-
-  return (
-    <ul
-      className={`mt-8 grid grid-cols-1 gap-x-4 gap-y-6 lg:mt-9 ${columns}`}
-    >
-      {study.screens.map((screen, i) => (
-        <li key={screen.src}>
-          <figure>
-            <div
-              className="relative w-full overflow-hidden border border-line bg-paper"
-              style={{ aspectRatio: study.screensAspect ?? "4 / 3" }}
-            >
-              <Image
-                src={screen.src}
-                alt={screen.alt}
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 620px"
-              />
-            </div>
-            <figcaption className="mt-2 flex gap-2 text-[11.5px] leading-snug text-muted">
-              <span className="mono-label mt-[3px] shrink-0 text-accent">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span>{screen.caption}</span>
-            </figcaption>
-          </figure>
-        </li>
-      ))}
-    </ul>
   );
 }
 
@@ -264,11 +200,15 @@ export default function CaseStudiesSection() {
             <Reveal key={study.id} delay={idx * 60}>
               <article className="grid gap-8 border-t border-line-strong pt-8 lg:grid-cols-12 lg:gap-12">
                 <div
-                  className={`lg:col-span-7 ${
+                  className={`min-w-0 lg:col-span-7 ${
                     idx % 2 === 1 ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
-                  <CaseVisual study={study} />
+                  {study.image ? (
+                    <CaseGallery study={study} />
+                  ) : (
+                    <WireframeVisual study={study} />
+                  )}
                 </div>
 
                 <div
@@ -313,11 +253,11 @@ export default function CaseStudiesSection() {
                     {study.contributions.map((item) => (
                       <li
                         key={item.label}
-                        className="grid grid-cols-[auto_1fr] gap-3"
+                        className="group grid grid-cols-[auto_1fr] gap-3"
                       >
                         <span
                           aria-hidden="true"
-                          className="mt-[9px] h-px w-3.5 shrink-0 bg-accent"
+                          className="mt-[9px] h-px w-3.5 shrink-0 bg-accent transition-all duration-300 group-hover:w-6"
                         />
                         <span className="text-[13px] leading-relaxed">
                           <span className="font-medium">{item.label}.</span>{" "}
@@ -339,10 +279,6 @@ export default function CaseStudiesSection() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="lg:col-span-12 lg:order-3">
-                  <ScreenStrip study={study} />
                 </div>
               </article>
             </Reveal>
