@@ -16,7 +16,7 @@ export const personalInfo: PersonalInfo = {
   detailedBio: [
     "Saya Farros, lulusan Teknik Informatika UIN Maulana Malik Ibrahim Malang dengan IPK 3.67. Minat saya ada di persimpangan visual, kode, dan orang: merancang tampilan, membangunnya, lalu memastikan perangkat serta sistem di sekitarnya ikut berjalan.",
     "Sekarang saya asisten laboratorium Praktikum Computer Graphic — membimbing dua kelas Blender, mengevaluasi progres proyek mahasiswa dalam lima tahap, dan menangani troubleshooting perangkat keras maupun lunak di laboratorium.",
-    "Sebelumnya saya praktik kerja lapangan di CV. Telematika Sains sebagai UI Designer & Web Support untuk Seminara.id: merancang antarmuka di Figma, menyusun tata letak halaman, dan menguji fungsionalitasnya lewat black-box testing.",
+    "Sebelumnya saya praktik kerja lapangan di CV. Telematika Sains dengan dua peran sekaligus: merancang antarmuka Seminara.id di Figma sampai tata letak halaman, lalu turun langsung sebagai tim teknis lapangan pada ujian seleksi perangkat desa berbasis komputer di Bojonegoro.",
     "Sisi kreatifnya saya isi dengan visualisasi 3D di Blender, sisi teknisnya dengan Python, Next.js, dan TypeScript — termasuk situs yang sedang Anda baca.",
   ],
   location: "Malang, Jawa Timur, Indonesia",
