@@ -84,6 +84,20 @@ export default function Footer() {
             </li>
             <li>
               <a
+                href={personalInfo.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
+              >
+                Instagram
+                <ArrowUpRight
+                  className="h-3 w-3 transition-colors group-hover:text-accent"
+                  strokeWidth={1.5}
+                />
+              </a>
+            </li>
+            <li>
+              <a
                 href={`mailto:${personalInfo.email}`}
                 className="group inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink"
               >

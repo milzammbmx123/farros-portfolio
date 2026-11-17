@@ -184,7 +184,7 @@ export default function HeroSection() {
             Gulir ke bawah
             <ArrowDown className="h-3 w-3 transition-transform duration-300 group-hover:translate-y-0.5" />
           </a>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 sm:gap-x-5">
             {personalInfo.githubPublic && (
               <a
                 href={personalInfo.githubUrl}
@@ -202,6 +202,14 @@ export default function HeroSection() {
               className="mono-label transition-colors hover:text-ink"
             >
               LinkedIn ↗
+            </a>
+            <a
+              href={personalInfo.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mono-label transition-colors hover:text-ink"
+            >
+              Instagram ↗
             </a>
             <a
               href={`mailto:${personalInfo.email}`}

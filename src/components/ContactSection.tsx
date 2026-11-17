@@ -163,6 +163,17 @@ export default function ContactSection() {
                       ↗
                     </span>
                   </a>
+                  <a
+                    href={personalInfo.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-draw group inline-flex w-fit items-center gap-1.5 text-[13px]"
+                  >
+                    Instagram
+                    <span className="text-muted transition-colors group-hover:text-accent">
+                      ↗
+                    </span>
+                  </a>
                   {personalInfo.githubPublic && (
                     <a
                       href={personalInfo.githubUrl}

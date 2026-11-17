@@ -30,6 +30,7 @@ export const personalInfo: PersonalInfo = {
   githubPublic: true,
   linkedinUrl:
     "https://www.linkedin.com/in/farros-asadudin-milzam-09822424b",
+  instagramUrl: "https://www.instagram.com/farrosmilzam_/",
   whatsappUrl: "https://wa.me/6282230116506",
   whatsappDisplay: "0822-3011-6506",
   cvUrl: "/cv/CV-Farros-Asadudin-Milzam.pdf",

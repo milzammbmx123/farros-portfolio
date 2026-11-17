@@ -110,6 +110,7 @@ export interface PersonalInfo {
    */
   githubPublic: boolean;
   linkedinUrl: string;
+  instagramUrl: string;
   whatsappUrl: string;
   whatsappDisplay: string;
   cvUrl: string;
