@@ -218,30 +218,89 @@ export const experienceData: ExperienceItem[] = [
     period: "Agustus 2026 — Sekarang",
     location: "Malang, Jawa Timur",
     summary:
-      "Mendampingi praktikum pemodelan 3D di Blender, dari sesi pertama sampai presentasi proyek akhir mahasiswa.",
+      "Membimbing dua kelas praktikum Blender — pemodelan, material, pencahayaan, sampai render — sekaligus menjaga perangkat laboratorium tetap siap dipakai.",
     points: [
-      "Membimbing dua kelas praktikum Computer Graphic: menjelaskan alur kerja Blender, mendemonstrasikan teknik modeling, dan mendampingi sesi mandiri.",
-      "Mengevaluasi lima tahap progres proyek mahasiswa — dari blockout sampai render akhir — lalu memberi catatan perbaikan per tahap.",
-      "Menangani troubleshooting perangkat keras dan perangkat lunak di laboratorium: pengecekan spesifikasi, instalasi ulang, dan pemulihan file kerja.",
+      "Membimbing mahasiswa pada dua kelas praktikum (Kelas A & Kelas C) dalam pemodelan 3D, pengaturan material/tekstur, pencahayaan, dan rendering menggunakan Blender.",
+      "Memantau serta mengevaluasi lima tahap progres proyek visual mahasiswa secara berkala hingga tahap akhir.",
+      "Menangani troubleshooting kendala teknis perangkat lunak desain maupun unit komputer di laboratorium selama sesi praktikum berlangsung.",
     ],
     tags: ["Blender", "Pengajaran", "Troubleshooting", "Evaluasi Proyek"],
     current: true,
+    photos: [
+      {
+        src: "/images/pengalaman/aslab-1.jpeg",
+        alt: "Mahasiswa mengerjakan latihan 3D di deretan komputer laboratorium.",
+        caption:
+          "Gbr. 01 — Sesi praktikum Computer Graphic: mahasiswa mengerjakan latihan di komputer laboratorium.",
+      },
+      {
+        src: "/images/pengalaman/aslab-2.jpeg",
+        alt: "Asisten laboratorium membantu dua mahasiswa di depan laptop saat praktikum.",
+        caption:
+          "Gbr. 02 — Pendampingan langsung saat mahasiswa menemui kendala teknis di meja praktikum.",
+      },
+      {
+        src: "/images/pengalaman/aslab-3.jpeg",
+        alt: "Ruang laboratorium komputer dilihat dari belakang kelas yang sedang berlangsung.",
+        caption:
+          "Gbr. 03 — Ruang praktikum saat sesi berlangsung, materi ditampilkan lewat proyektor.",
+      },
+      {
+        src: "/images/pengalaman/aslab-4.jpeg",
+        alt: "Pengajar berdiri di depan kelas komputer sambil menjelaskan materi.",
+        caption:
+          "Gbr. 04 — Penjelasan alur kerja Blender di depan kelas sebelum mahasiswa mengerjakan proyek.",
+      },
+    ],
   },
   {
     id: "pkl-telematika",
-    role: "UI Designer & Web Support — Praktik Kerja Lapangan",
+    role: "UI Designer & Field IT Support (PKL)",
     org: "CV. Telematika Sains",
     type: "PKL / Magang",
-    period: "Juli — Agustus 2025",
-    location: "Malang, Jawa Timur",
+    period: "10 Juli — 10 Agustus 2025",
+    location: "Malang & Bojonegoro, Jawa Timur",
     summary:
-      "Merancang dan merapikan antarmuka Seminara.id, platform manajemen seminar, lalu memastikan tampilannya jalan di peramban.",
+      "Berperan ganda: merancang antarmuka Seminara.id sekaligus menjadi tim dukungan teknis lapangan pada ujian seleksi perangkat desa berbasis komputer di Bojonegoro.",
     points: [
-      "Merancang antarmuka platform manajemen seminar Seminara.id di Figma, mulai dari susunan informasi sampai komponen form pendaftaran.",
-      "Menyusun tata letak halaman (front-end layouting) agar hasil rancangan konsisten dengan tampilan yang dipakai pengguna.",
-      "Melakukan pengujian fungsionalitas dengan black-box testing pada alur pendaftaran, pengelolaan jadwal, dan halaman peserta.",
+      "Field IT Support (Bojonegoro): bertugas dua hari di SMPN 1 Kanor untuk ujian seleksi berbasis web TPPD Desa Kedungprimpen, Kecamatan Kanor — kerja sama CV. Telematika Sains sebagai penyedia sistem ujian dengan Universitas Wisnuwardhana Malang sebagai penyusun soal.",
+      "Kesiapan jaringan & perangkat: memeriksa puluhan unit laptop dan komputer desktop di Ruang Ujian 1 dan Lab. 2, termasuk kestabilan koneksi LAN serta pembersihan berkas temp dan prefetch agar perangkat ringan selama tes.",
+      "Perancangan UI (Seminara.id): merancang antarmuka responsif di Figma dan menyusun tata letak halaman dengan Laravel Blade & Bootstrap.",
+      "Pengujian fungsionalitas: black-box testing dari halaman publik sampai dashboard administrator.",
     ],
-    tags: ["Figma", "Wireframe", "Front-end Layout", "Black-box Testing"],
+    tags: ["Figma", "Laravel Blade", "Bootstrap", "Black-box Testing", "IT Support"],
+    photos: [
+      {
+        src: "/images/pengalaman/pkl-1.jpeg",
+        alt: "Kartu tanda panitia TPPD Kedungprimpen digenggam di dalam mobil.",
+        caption:
+          "Gbr. 01 — Kartu identitas resmi tim teknis TPPD Kedungprimpen, Kec. Kanor, Kab. Bojonegoro (2025).",
+      },
+      {
+        src: "/images/pengalaman/pkl-3.jpeg",
+        alt: "Pengecekan unit laptop ujian di ruang tes sekolah.",
+        caption:
+          "Gbr. 02 — Pengecekan kesiapan unit laptop ujian, koneksi kabel jaringan (LAN), dan pembersihan sistem di ruang tes SMPN 1 Kanor.",
+      },
+      {
+        src: "/images/pengalaman/pkl-4.jpeg",
+        alt: "Deretan laptop peserta di ruang Lab. 2 sebelum sesi ujian.",
+        caption:
+          "Gbr. 03 — Pemeriksaan dan optimasi unit komputer desktop peserta di Lab. 2 sebelum sesi ujian seleksi perangkat desa dimulai.",
+      },
+      {
+        src: "/images/pengalaman/pkl-2.jpeg",
+        alt: "Koordinasi bersama panitia dan petugas pengamanan di depan pintu ruang ujian.",
+        caption:
+          "Gbr. 04 — Koordinasi lapangan bersama panitia lokal dan petugas pengamanan di depan Ruang Ujian 1 (Desa Kedungprimpen).",
+      },
+      {
+        src: "/images/pengalaman/pkl-5.jpeg",
+        alt: "Gerbang SMPN 1 Kanor, Bojonegoro, dengan papan nama sekolah.",
+        caption:
+          "Gbr. 05 — SMPN 1 Kanor, lokasi pelaksanaan ujian seleksi perangkat desa.",
+      },
+    ],
   },
 ];
 
@@ -283,28 +342,24 @@ export const caseStudiesData: CaseStudyItem[] = [
         alt: "Halaman daftar seminar Seminara.id dengan tiga kartu acara",
         caption:
           "Daftar seminar: kartu acara memuat harga, tanggal, lokasi, dan tombol daftar.",
-        aspect: "1440 / 734",
       },
       {
         src: "/images/case-studies/seminara-detail.jpg",
         alt: "Halaman detail seminar Work Smart dengan poster acara dan panel informasi",
         caption:
           "Detail seminar: poster acara, ringkasan materi, dan panel jadwal.",
-        aspect: "1440 / 1052",
       },
       {
         src: "/images/case-studies/seminara-speakers.jpg",
         alt: "Halaman daftar pembicara Seminara.id berisi empat profil narasumber",
         caption:
           "Daftar pembicara: foto, gelar, dan ringkasan keahlian tiap narasumber.",
-        aspect: "1440 / 1021",
       },
       {
         src: "/images/case-studies/seminara-profile.jpg",
         alt: "Halaman profil pembicara dengan biografi dan daftar seminar yang diisi",
         caption:
           "Profil pembicara: biografi singkat dan seminar yang pernah diisi.",
-        aspect: "1440 / 1102",
       },
     ],
   },
@@ -344,14 +399,12 @@ export const caseStudiesData: CaseStudyItem[] = [
         alt: "HUD Trash Tycoon saat bermain: sisa waktu, isi truk, koin, dan tiga daya tahan sampah",
         caption:
           "HUD saat bermain: sisa waktu, isi truk, koin, dan daya tahan tiga jenis sampah — panel performa terbaca 72 FPS pada Quality UltraHigh.",
-        aspect: "1440 / 810",
       },
       {
         src: "/images/case-studies/trash-tycoon-quality-low.jpg",
         alt: "Modal sambutan Trash Tycoon dengan panel performa 144 FPS pada Quality UltraLow",
         caption:
           "Modal sambutan pada Quality UltraLow — frame rate terbaca 144 FPS saat detail grafis diturunkan.",
-        aspect: "1440 / 810",
       },
     ],
   },

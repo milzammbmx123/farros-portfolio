@@ -13,6 +13,12 @@ export interface WorkItem {
   year: string;
 }
 
+export interface ExperiencePhoto {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
 export interface ExperienceItem {
   id: string;
   role: string;
@@ -24,6 +30,8 @@ export interface ExperienceItem {
   points: string[];
   tags: string[];
   current?: boolean;
+  /** Dokumentasi foto yang tampil saat rincian dibuka. */
+  photos?: ExperiencePhoto[];
 }
 
 export interface CaseStudyScreen {

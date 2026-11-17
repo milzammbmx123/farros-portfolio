@@ -5,6 +5,7 @@ import { Plus } from "lucide-react";
 import { experienceData } from "@/data/portfolio";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
+import ExperiencePhotos from "./ExperiencePhotos";
 
 export default function ExperienceSection() {
   const [openIds, setOpenIds] = useState<string[]>(() =>
@@ -192,6 +193,23 @@ export default function ExperienceSection() {
                             ))}
                           </ul>
                         </div>
+
+                        {isOpen && exp.photos?.length ? (
+                          <div className="border-t border-line pt-5 lg:col-span-12">
+                            <div className="mb-3 flex items-baseline justify-between gap-4">
+                              <span className="mono-label">
+                                Dokumentasi lapangan
+                              </span>
+                              <span className="mono-label">
+                                {String(exp.photos.length).padStart(2, "0")} foto
+                              </span>
+                            </div>
+                            <ExperiencePhotos
+                              photos={exp.photos}
+                              title={exp.role}
+                            />
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                   </div>
