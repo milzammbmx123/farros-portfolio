@@ -17,6 +17,9 @@ export interface ExperiencePhoto {
   src: string;
   alt: string;
   caption: string;
+  /** Pixel size of the source file, used to keep the native ratio. */
+  width: number;
+  height: number;
 }
 
 export interface ExperienceItem {

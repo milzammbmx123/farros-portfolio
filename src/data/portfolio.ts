@@ -229,24 +229,32 @@ export const experienceData: ExperienceItem[] = [
     photos: [
       {
         src: "/images/pengalaman/aslab-1.jpeg",
+        width: 1152,
+        height: 864,
         alt: "Mahasiswa mengerjakan latihan 3D di deretan komputer laboratorium.",
         caption:
           "Gbr. 01 — Sesi praktikum Computer Graphic: mahasiswa mengerjakan latihan di komputer laboratorium.",
       },
       {
         src: "/images/pengalaman/aslab-2.jpeg",
+        width: 864,
+        height: 1152,
         alt: "Asisten laboratorium membantu dua mahasiswa di depan laptop saat praktikum.",
         caption:
           "Gbr. 02 — Pendampingan langsung saat mahasiswa menemui kendala teknis di meja praktikum.",
       },
       {
         src: "/images/pengalaman/aslab-3.jpeg",
+        width: 864,
+        height: 1152,
         alt: "Ruang laboratorium komputer dilihat dari belakang kelas yang sedang berlangsung.",
         caption:
           "Gbr. 03 — Ruang praktikum saat sesi berlangsung, materi ditampilkan lewat proyektor.",
       },
       {
         src: "/images/pengalaman/aslab-4.jpeg",
+        width: 1280,
+        height: 720,
         alt: "Pengajar berdiri di depan kelas komputer sambil menjelaskan materi.",
         caption:
           "Gbr. 04 — Penjelasan alur kerja Blender di depan kelas sebelum mahasiswa mengerjakan proyek.",
@@ -272,30 +280,40 @@ export const experienceData: ExperienceItem[] = [
     photos: [
       {
         src: "/images/pengalaman/pkl-1.jpeg",
+        width: 864,
+        height: 1152,
         alt: "Kartu tanda panitia TPPD Kedungprimpen digenggam di dalam mobil.",
         caption:
           "Gbr. 01 — Kartu identitas resmi tim teknis TPPD Kedungprimpen, Kec. Kanor, Kab. Bojonegoro (2025).",
       },
       {
         src: "/images/pengalaman/pkl-3.jpeg",
+        width: 960,
+        height: 1280,
         alt: "Pengecekan unit laptop ujian di ruang tes sekolah.",
         caption:
           "Gbr. 02 — Pengecekan kesiapan unit laptop ujian, koneksi kabel jaringan (LAN), dan pembersihan sistem di ruang tes SMPN 1 Kanor.",
       },
       {
         src: "/images/pengalaman/pkl-4.jpeg",
+        width: 864,
+        height: 1152,
         alt: "Deretan laptop peserta di ruang Lab. 2 sebelum sesi ujian.",
         caption:
           "Gbr. 03 — Pemeriksaan dan optimasi unit komputer desktop peserta di Lab. 2 sebelum sesi ujian seleksi perangkat desa dimulai.",
       },
       {
         src: "/images/pengalaman/pkl-2.jpeg",
+        width: 864,
+        height: 1152,
         alt: "Koordinasi bersama panitia dan petugas pengamanan di depan pintu ruang ujian.",
         caption:
           "Gbr. 04 — Koordinasi lapangan bersama panitia lokal dan petugas pengamanan di depan Ruang Ujian 1 (Desa Kedungprimpen).",
       },
       {
         src: "/images/pengalaman/pkl-5.jpeg",
+        width: 1152,
+        height: 864,
         alt: "Gerbang SMPN 1 Kanor, Bojonegoro, dengan papan nama sekolah.",
         caption:
           "Gbr. 05 — SMPN 1 Kanor, lokasi pelaksanaan ujian seleksi perangkat desa.",

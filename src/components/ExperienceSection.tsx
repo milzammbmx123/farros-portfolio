@@ -195,7 +195,7 @@ export default function ExperienceSection() {
                         </div>
 
                         {isOpen && exp.photos?.length ? (
-                          <div className="border-t border-line pt-5 lg:col-span-12">
+                          <div className="min-w-0 border-t border-line pt-5 lg:col-span-12">
                             <div className="mb-3 flex items-baseline justify-between gap-4">
                               <span className="mono-label">
                                 Dokumentasi lapangan

@@ -11,6 +11,14 @@ interface ExperiencePhotosProps {
   title: string;
 }
 
+/** Caption "Gbr. 01 — teks" dipecah supaya nomornya bisa jadi label sendiri. */
+function splitCaption(caption: string) {
+  const match = caption.match(/^(Gbr\.\s*\d+)\s*—\s*(.*)$/);
+  return match
+    ? { label: match[1], text: match[2] }
+    : { label: null, text: caption };
+}
+
 export default function ExperiencePhotos({
   photos,
   title,
@@ -58,50 +66,63 @@ export default function ExperiencePhotos({
           photos.length
         ).padStart(2, "0")}`;
 
-  const gridCols =
-    photos.length >= 5
-      ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-      : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4";
-
   return (
     <div>
-      <ul className={`grid gap-x-3 gap-y-5 ${gridCols}`}>
+      {/* Deretan foto: tinggi seragam, lebar mengikuti rasio asli,
+          jadi tidak ada bagian yang terpotong maupun bilah kosong. */}
+      <ul className="flex snap-x snap-mandatory items-start gap-2.5 overflow-x-auto pb-1 sm:gap-3 lg:justify-between">
         {photos.map((photo, i) => (
-          <li key={photo.src}>
-            <figure>
-              <button
-                type="button"
-                onClick={() => setActive(i)}
-                aria-label={`Perbesar foto ${i + 1}: ${photo.alt}`}
-                className="group relative block w-full cursor-zoom-in overflow-hidden border border-line bg-[var(--tint)] text-left transition-colors duration-300 hover:border-line-strong"
-              >
-                <span
-                  className="relative block w-full"
-                  style={{ aspectRatio: "3 / 4" }}
-                >
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 240px"
-                    className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-                  />
-                </span>
-                <span className="pointer-events-none absolute bottom-1.5 right-1.5 grid h-6 w-6 place-items-center border border-line bg-paper/90 text-ink opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+          <li key={photo.src} className="shrink-0 snap-start">
+            <button
+              type="button"
+              onClick={() => setActive(i)}
+              aria-label={`Perbesar foto ${i + 1}: ${photo.alt}`}
+              className="group relative block cursor-zoom-in overflow-hidden border border-line transition-colors duration-300 hover:border-line-strong"
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                width={photo.width}
+                height={photo.height}
+                sizes="(max-width: 640px) 320px, 520px"
+                className="h-[188px] w-auto max-w-none object-cover transition-transform duration-500 group-hover:scale-[1.03] sm:h-[216px] lg:h-[246px]"
+              />
+
+              <span className="pointer-events-none absolute left-0 top-0 border-b border-r border-line bg-paper/90 px-1.5 py-0.5 font-mono text-[9px] tracking-[0.12em] text-ink">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <span className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="grid h-7 w-7 place-items-center border border-paper/40 bg-paper/90 text-ink">
                   <Maximize2 className="h-3 w-3" strokeWidth={1.5} />
                 </span>
-              </button>
-              <figcaption className="mt-2 text-[11px] leading-snug text-muted">
-                {photo.caption}
-              </figcaption>
-            </figure>
+              </span>
+            </button>
           </li>
         ))}
       </ul>
 
+      {/* Legenda bernomor, lebar kolom seragam supaya teks tidak sempit */}
+      <ol className="mt-3 grid gap-x-8 gap-y-2.5 border-t border-line pt-3 sm:grid-cols-2">
+        {photos.map((photo, i) => {
+          const { label, text } = splitCaption(photo.caption);
+          return (
+            <li key={photo.src} className="flex gap-2">
+              <span className="mono-label mt-[1px] shrink-0 text-accent">
+                {label ?? String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="text-[11px] leading-snug text-muted">
+                {text}
+              </span>
+            </li>
+          );
+        })}
+      </ol>
+
       <p className="mono-label mt-3 flex items-center gap-2">
         <Maximize2 className="h-2.5 w-2.5" strokeWidth={1.5} />
-        Klik foto untuk memperbesar
+        <span className="sm:hidden">Geser &amp; klik foto untuk memperbesar</span>
+        <span className="hidden sm:inline">Klik foto untuk memperbesar</span>
       </p>
 
       {current && mounted
@@ -150,8 +171,8 @@ export default function ExperiencePhotos({
                     key={current.src}
                     src={current.src}
                     alt={current.alt}
-                    width={1200}
-                    height={1600}
+                    width={current.width}
+                    height={current.height}
                     className="max-h-[68vh] w-auto max-w-full object-contain"
                     sizes="(max-width: 1024px) 100vw, 960px"
                     priority
